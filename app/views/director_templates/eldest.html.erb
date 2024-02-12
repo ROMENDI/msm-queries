@@ -1,0 +1,7 @@
+<h1> Eldest director </h1>
+<p> The eldest director in our dataset right now is 
+    <% directors_without_nil = Director.where.not({ :dob => nil})%>
+    <% sorted_directors = directors_without_nil.all.order({ :dob => :asc }) %>
+    <% eldest = sorted_directors.first %>
+    <a href="/directors/<%= eldest.id %>"> <%= eldest.name %> </a>
+</p>
